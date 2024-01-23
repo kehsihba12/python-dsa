@@ -1,5 +1,4 @@
-# BUBBLE SORT 
-
+# array is Sorted or not 
 
 def sortB(arr):
     i = 0
@@ -9,5 +8,5 @@ def sortB(arr):
         else:
             return False
     return True
-print(sortB([1,2,3,4]))
+print(sortB([1,2,3,4])) 
 
