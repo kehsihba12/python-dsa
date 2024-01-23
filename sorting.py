@@ -12,29 +12,29 @@
 
 
 # Bubble sorting -- asending order o(n*n)-- worst case best case O(n)
-# def bubble(arr):
-#     for i in range(len(arr)-1):
-#         sorting = False
-#         for j in range(1,len(arr)-i):
-#             if arr[j] < arr[j-1]:
-#                 arr[j],arr[j-1] = arr[j-1],arr[j]
-#                 sorting =  True
-#         if sorting == False:
-#             break
+def bubble(arr):
+    for i in range(len(arr)-1):
+        sorting = False
+        for j in range(1,len(arr)-i):
+            if arr[j] < arr[j-1]:
+                arr[j],arr[j-1] = arr[j-1],arr[j]
+                sorting =  True
+        if sorting == False:
+            break
 #     return arr
 # print(bubble([5,8,3,65,-43,0,12]))
 
 # # Bubble sorting -- Dsending order o(n*n)-- worst case best case O(n)
-# def bubble(arr):
-#     for i in range(len(arr)-1):
-#         sorting = False
-#         for j in range(1,len(arr)-i):
-#             if arr[j] > arr[j-1]:
-#                 arr[j],arr[j-1] = arr[j-1],arr[j]
-#                 sorting =  True
-#         if sorting == False:
-#             break
-#     return arr
+def bubble(arr):
+    for i in range(len(arr)-1):
+        sorting = False
+        for j in range(1,len(arr)):
+            if arr[j] > arr[j-1]:
+                arr[j],arr[j-1] = arr[j-1],arr[j]
+                sorting =  True
+        if sorting == False:
+            break
+    return arr
 # print(bubble([5,8,3,65,-43,0,12]))
 
 
@@ -49,7 +49,7 @@ def selection_sort(arr):
         arr[mini] = arr[i]
         arr[i] = temp
     return arr
-print(selection_sort( [-23,0,3,-33]))
+# print(selection_sort( [-23,0,3,-33]))
 
 # Selection sort  best / worst / average complexity ---O(n*n) taking max element and put into last index
 def selection_sort(arr):
@@ -62,5 +62,15 @@ def selection_sort(arr):
         arr[max] = arr[i]
         arr[i] = temp
     return arr
-print(selection_sort( [-23,0,3,-33]))
+# print(selection_sort( [-23,0,3,-33]))
 
+#  insertion sort 
+
+def insertion_sort(arr):
+    for i in range(len(arr)):
+        j = i
+        while(j > 0 and arr[j-1] > arr[j]):
+            arr[j],arr[j-1] = arr[j-1],arr[j]
+            j -= 1
+    return arr
+print(insertion_sort([-23,0,3,-33]))
