@@ -124,4 +124,31 @@ arr = [-23,0,4,2,1,-33]
 merged(arr)
 print(arr)
 
+#  quick sort 
+def quickSort(arr,low,high):
+    if low < high :
+        pdx = partition(arr,low,high)
+        quickSort(arr,low,pdx-1)
+        quickSort(arr,pdx+1,high)
+def partition(arr,low,high):
+    pivot = len(arr)-1
+    i = low-1
+    for j in range(low,high):
+        if arr[j] < arr[pivot]:
+            i += 1
+            temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+    i += 1
+    temp = arr[i]
+    arr[i] = arr[high]
+    arr[high]= temp
+    return i
+
+arr = [-23,0,3,-33]
+low = 0
+high = len(arr)-1
+quickSort(arr,low,high)
+print(arr)
+
     
