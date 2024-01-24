@@ -90,39 +90,39 @@
 
 
 # merge sort
-def merged(arr):
-    if len(arr) > 1:
-        left_arr = arr[:len(arr)//2]
-        right_arr = arr[len(arr)//2:]
+# def merged(arr):
+#     if len(arr) > 1:
+#         left_arr = arr[:len(arr)//2]
+#         right_arr = arr[len(arr)//2:]
 
-        merged(left_arr)
-        merged(right_arr)
-        #  merge
-        i = 0
-        j = 0
-        k = 0
+#         merged(left_arr)
+#         merged(right_arr)
+#         #  merge
+#         i = 0
+#         j = 0
+#         k = 0
 
-        while i < len(left_arr) and j < len(right_arr):
-            if left_arr[i] < right_arr[j]:
-                arr[k] = left_arr[i]
-                i += 1
-                k += 1
-            else:
-                arr[k] = right_arr[j]
-                j += 1
-                k += 1
-        while (i < len(left_arr)):
-            arr[k] = left_arr[i]
-            i += 1
-            k += 1
-        while( j < len(right_arr)):
-            arr[k] = right_arr[j]
-            j += 1
-            k += 1
+#         while i < len(left_arr) and j < len(right_arr):
+#             if left_arr[i] < right_arr[j]:
+#                 arr[k] = left_arr[i]
+#                 i += 1
+#                 k += 1
+#             else:
+#                 arr[k] = right_arr[j]
+#                 j += 1
+#                 k += 1
+#         while (i < len(left_arr)):
+#             arr[k] = left_arr[i]
+#             i += 1
+#             k += 1
+#         while( j < len(right_arr)):
+#             arr[k] = right_arr[j]
+#             j += 1
+#             k += 1
 
-arr = [-23,0,4,2,1,-33]
-merged(arr)
-print(arr)
+# arr = [-23,0,4,2,1,-33]
+# merged(arr)
+# print(arr)
 
 #  quick sort 
 def quickSort(arr,low,high):
@@ -131,24 +131,24 @@ def quickSort(arr,low,high):
         quickSort(arr,low,pdx-1)
         quickSort(arr,pdx+1,high)
 def partition(arr,low,high):
-    pivot = len(arr)-1
-    i = low-1
-    for j in range(low,high):
-        if arr[j] < arr[pivot]:
+    i = low
+    j = len(arr)-1
+    pivot = arr[high]
+    while i < j:
+        while i < high and arr[i] < pivot:
             i += 1
-            temp = arr[i]
-            arr[i] = arr[j]
-            arr[j] = temp
-    i += 1
-    temp = arr[i]
-    arr[i] = arr[high]
-    arr[high]= temp
-    return i
-
-arr = [-23,0,3,-33]
+        while j > low and arr[j] >= pivot:
+            j -= 1
+        if i < j:
+            arr[i],arr[j] = arr[j],arr[i]
+    if arr[i] > pivot:
+        arr[i],arr[high] = arr[high],arr[i]
+    
+    return i 
+    
+arr = [6,3,9,5,2,8]
 low = 0
 high = len(arr)-1
 quickSort(arr,low,high)
 print(arr)
-
     
